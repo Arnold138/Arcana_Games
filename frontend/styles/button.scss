@@ -1,0 +1,89 @@
+@import './variables';
+@import './mixins';
+
+.button {
+  @include button-base;
+  position: relative;
+  overflow: hidden;
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left $transition-slow;
+  }
+  
+  &:hover &__glow {
+    left: 100%;
+  }
+  
+  // Variantes
+  &--primary {
+    background: linear-gradient(45deg, $accent-gold, lighten($accent-gold, 10%));
+    color: $primary-dark;
+    font-weight: 600;
+    
+    &:hover {
+      background: linear-gradient(45deg, lighten($accent-gold, 10%), lighten($accent-gold, 20%));
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+  }
+  
+  &--secondary {
+    background: $secondary-dark;
+    color: $text-primary;
+    border: 1px solid $tertiary-dark;
+    
+    &:hover {
+      background: $tertiary-dark;
+      border-color: $accent-gold;
+      color: $accent-gold;
+    }
+  }
+  
+  &--outline {
+    background: transparent;
+    color: $accent-gold;
+    border: 2px solid $accent-gold;
+    
+    &:hover {
+      background: $accent-gold;
+      color: $primary-dark;
+    }
+  }
+  
+  // Tailles
+  &--sm {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+  }
+  
+  &--md {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-base;
+  }
+  
+  &--lg {
+    padding: $spacing-lg $spacing-2xl;
+    font-size: $font-size-lg;
+  }
+  
+  // État désactivé
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}

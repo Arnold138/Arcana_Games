@@ -1,0 +1,84 @@
+.carousel { 
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    object-fit: cover;
+}
+
+.carousel-full {
+  max-width: 100vw;
+  margin: 0 auto;
+  display: block;
+  /* Ajoute éventuellement du padding ou margin-bottom pour bien séparer */
+  margin-bottom: 4rem;
+}
+
+.carousel img {
+    width: 1000px;
+    background: inherit;
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel img {
+    width: 1000px;
+    background: inherit;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid #e5c108d6;
+}
+
+button.carousel-btn.left, button.carousel-btn.right {
+    background: inherit;
+    border: none;
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+button.carousel-btn.left { 
+    left: 3%;
+    top: 50%;
+}
+
+button.carousel-btn.right { 
+
+    right: 3%;
+    top: 50%;
+}
+
+.carousel-image {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+
+// partie responsive 
+
+@media (max-width: 600px) {
+  .carousel-root {
+    max-width: 100vw;
+    border-radius: 0.5rem;
+    margin-bottom: 1.2rem;
+    padding: 0;
+  }
+  .carousel-inner {
+    max-width: 100vw;
+    padding: 0;
+  }
+  .carousel-image {
+    max-height: 170px;
+    border-radius: 0.4rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  .carousel-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    &.left { left: 0.3rem; }
+    &.right { right: 0.3rem; }
+  }
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
