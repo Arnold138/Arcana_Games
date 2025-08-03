@@ -6,12 +6,8 @@ import Home from './pages/Home';
 import Scenarios from './pages/Scenarios';
 import CreateExperience from './components/createexperience'; 
 import ContactSection from './components/contact';
-import About from '../src/components/about';
+import About from './components/about'; 
 
-/**
- * Composant principal de l'application Arcana Games
- * Gère le routing et la structure générale du site
- */
 function App() {
   return (
     <div className="App">
@@ -23,7 +19,6 @@ function App() {
           <Route path="/experience" element={<CreateExperience />} />
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/about" element={<About />} />
-
         </Routes>
       </AnimatePresence>
     </div>
