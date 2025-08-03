@@ -7,11 +7,8 @@ import CreateExperience from '../components/createexperience';
 import Contact from '../components/contact';
 import Carousel from '../components/Carousel';
 
-
-const images = Array.from({ length: 15}, (_, i) => `../public/images/carousel/${i + 1}.webp`);
-
-
-
+// Changez ceci : supprimez "../public/" et remplacez par "./"
+const images = Array.from({ length: 15}, (_, i) => `./images/carousel/${i + 1}.webp`);
 
 const Home = () => {
   return (
