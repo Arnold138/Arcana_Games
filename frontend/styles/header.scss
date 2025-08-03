@@ -1,0 +1,216 @@
+@import './variables';
+@import './mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: $spacing-lg 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  transition: all $transition-normal;
+
+  &--scrolled {
+    padding: $spacing-md 0;
+    background: rgba(10, 10, 10, 0.98);
+    border-bottom-color: rgba(212, 175, 55, 0.3);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; // 3 colonnes : gauche, centre, droite
+    align-items: center;
+    gap: $spacing-lg;
+    
+    // Alternative flexbox si tu préfères :
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+  }
+
+  // GAUCHE : Texte Arcana Games
+  &__logo-text-link {
+    font-family: $font-display;
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    color: $accent-gold;
+    text-decoration: none;
+    position: relative;
+    justify-self: start; // Aligné à gauche dans la grille
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $accent-gold;
+      transition: width $transition-normal;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__logo-text {
+    background: linear-gradient(45deg, $accent-gold, lighten($accent-gold, 20%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  // CENTRE : Logo
+  &__logo-center {
+    justify-self: center; // Centré dans la grille
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__logo-image {
+    height: 40px; // Ajuste la taille selon tes besoins
+    width: auto;
+    transition: all $transition-normal;
+    
+    // Effet au survol
+    &:hover {
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    }
+  }
+
+  // DROITE : Navigation
+  &__nav {
+    justify-self: end; // Aligné à droite dans la grille
+    
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: $spacing-2xl;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__nav-link {
+    color: $text-secondary;
+    font-weight: 500;
+    text-decoration: none;
+    padding: $spacing-sm 0;
+    position: relative;
+    transition: color $transition-normal;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $accent-gold;
+      transition: width $transition-normal;
+    }
+
+    &:hover,
+    &.active {
+      color: $accent-gold;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  // Menu mobile
+  &__mobile-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-sm;
+    gap: 4px;
+    justify-self: end; // Aligné à droite quand visible
+
+    @include respond-to(lg) {
+      display: flex;
+    }
+
+    span {
+      width: 25px;
+      height: 2px;
+      background: $text-primary;
+      transition: all $transition-normal;
+      transform-origin: center;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+
+  &__mobile-menu {
+    @include respond-to(lg) {
+      display: block;
+    }
+    display: none;
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  &__mobile-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__mobile-nav-item {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__mobile-nav-link {
+    display: block;
+    padding: $spacing-md 0;
+    color: $text-secondary;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all $transition-normal;
+
+    &:hover,
+    &.active {
+      color: $accent-gold;
+      padding-left: $spacing-md;
+    }
+  }
+
+  // Responsive : En mobile, on cache le logo du centre pour éviter l'encombrement
+  @include respond-to(lg) {
+    &__content {
+      grid-template-columns: 1fr auto; // 2 colonnes en mobile
+    }
+    
+    &__logo-center {
+      display: none; // Cache le logo en mobile
+    }
+  }
+}
