@@ -8,7 +8,7 @@ import Contact from '../components/contact';
 import Carousel from '../components/Carousel';
 
 // Changez ceci : supprimez "../public/" et remplacez par "./"
-const images = Array.from({ length: 15}, (_, i) => `./images/carousel/${i + 1}.webp`);
+const images = Array.from({ length: 15}, (_, i) => `./assets/carousel/${i + 1}.webp`);
 
 const Home = () => {
   return (
