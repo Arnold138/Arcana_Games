@@ -7,7 +7,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/Arcana-Game">
+    <BrowserRouter basename="/Arcana_Games">
       <App />
     </BrowserRouter>
   </React.StrictMode>
