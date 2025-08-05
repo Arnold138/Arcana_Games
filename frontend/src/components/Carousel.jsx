@@ -16,7 +16,7 @@ const Carousel = ({ images }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-        }, 4000);
+        }, 8000);
         return () => clearInterval(interval);
     }, [images.length]); // Ajoutez images.length comme dépendance
 
@@ -31,7 +31,7 @@ const Carousel = ({ images }) => {
     return (
         <div className="carousel"> 
             <button className="carousel-btn left" onClick={prevSlide}>
-                <ChevronRight size={24} strokeWidth={2} style={{ transform: 'rotate(180deg)' }} />
+                <ChevronRight size={40} strokeWidth={2} style={{ transform: 'rotate(180deg)' }} />
             </button>
             <div className="carousel-image"> 
                 <img 
@@ -41,7 +41,7 @@ const Carousel = ({ images }) => {
                 />
             </div>
             <button className="carousel-btn right" onClick={nextSlide}>
-                <ChevronRight size={24} strokeWidth={2} />
+                <ChevronRight size={40} strokeWidth={2} />
             </button>
         </div>
     );

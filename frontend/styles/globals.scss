@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   text-align: center;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 html {
@@ -71,7 +71,7 @@ a {
 }
 
 .text-gold {
-  color: $accent-gold;
+  color: $accent-purple;
 }
 
 .mb-lg {
@@ -112,11 +112,11 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $accent-gold;
+  background: $accent-purple;
   border-radius: 4px;
   
   &:hover {
-    background: lighten($accent-gold, 10%);
+    background: lighten($accent-purple, 10%);
   }
 }
 
@@ -134,4 +134,13 @@ a {
   @media (max-width: 600px) {
     max-width: 110px;
   }
+}
+
+button.button.button--primary.button--md.escape-game {
+  background: #d4af37;
+}
+
+.container {
+  max-width: 1900px;
+  margin: 0 auto;
 }

@@ -88,6 +88,21 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
+  &--murder-party:hover {
+    border-color: #6815a5;
+    box-shadow: 0 20px 40px rgba(104, 21, 165, 0.2);
+  }
+
+  &--escape-game:hover {
+    border-color: $accent-gold;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  &--olympiades:hover {
+    border-color: #00ff88;
+    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+  }
+
   &__image {
     position: relative;
     height: 250px;
@@ -109,11 +124,45 @@
     position: absolute;
     top: $spacing-md;
     right: $spacing-md;
-    background: $accent-gold;
-    color: $primary-dark;
     padding: $spacing-xs $spacing-md;
     border-radius: $border-radius-sm;
     font-size: $font-size-xs;
     font-weight: 600;
     text-transform: uppercase;
-  }}
+  }
+
+  &__category--murder-party {
+    background: #6815a5;
+    color: white;
+  }
+
+  &__category--escape-game {
+    background: $accent-gold;
+    color: $primary-dark;
+  }
+
+  &__category--olympiades {
+    background: #00ff88;
+    color: $primary-dark;
+  }
+
+  // Fallback pour les catégories sans classe spécifique
+  &__category:not(.scenario-card__category--murder-party):not(.scenario-card__category--escape-game):not(.scenario-card__category--olympiades) {
+    background: $accent-gold;
+    color: $primary-dark;
+  }
+}
+
+p.scenario-card__description {
+  line-height: 30px;
+  padding: 1.9rem;
+  
+}
+.scenario-card__info, .scenario-card__highlights {
+  padding: 2rem;
+  letter-spacing: 2px;
+}
+ul.scenario-card__highlights {
+  text-decoration: none;
+  list-style: none;
+}

@@ -5,13 +5,27 @@ import { Link } from "react-router-dom";
 
 /**
  * Composant Services - Présentation des services principaux
- * Murder Parties et Escape Games
+ * Murder Parties, Escape Games et Olympiades
  */
 const Services = () => {
   const services = [
     {
       id: 1,
-      title: "Murder Parties",
+      title: "Escape Games",
+      subtitle: "Défis collaboratifs sur mesure",
+      description: "Renforcez la cohésion d'équipe avec nos escape games personnalisés. Énigmes, puzzles et mystères à résoudre en équipe.   Lancez-vous !",
+      features: [
+        "Énigmes adaptées à votre niveau",
+        "Thèmes variés et originaux",
+        "Équipes de 4 à 20 personnes",
+        "Débriefing team-building"
+      ],
+      icon: "🗝️",
+      color: "gold"
+    },
+    {
+      id: 2,
+      title: "Murder Party",
       subtitle: "Enquêtes criminelles immersives",
       description: "Transformez votre événement en véritable thriller. Vos invités deviennent détectives dans une intrigue captivante où chaque indice compte.",
       features: [
@@ -24,18 +38,18 @@ const Services = () => {
       color: "red"
     },
     {
-      id: 2,
-      title: "Escape Games",
-      subtitle: "Défis collaboratifs sur mesure",
-      description: "Renforcez la cohésion d'équipe avec nos escape games personnalisés. Énigmes, puzzles et mystères à résoudre en équipe.",
+      id: 3,
+      title: "Olympiades",
+      subtitle: "Compétitions sportives déjantées",
+      description: "Renforcez la cohésion d'équipe avec nos olympiades personnalisées. Épreuves sportives, défis loufoques et moments de convivialité garantis.",
       features: [
-        "Énigmes adaptées à votre niveau",
-        "Thèmes variés et originaux",
-        "Équipes de 4 à 20 personnes",
-        "Débriefing team-building"
+        "Épreuves adaptées à votre niveau",
+        "Animations variées et originales",
+        "Équipes de 8 à 20 personnes",
+        "Fous rires et team-building"
       ],
-      icon: "🗝️",
-      color: "gold"
+      icon: "🏆",
+      color: "green"
     }
   ];
 
@@ -122,7 +136,7 @@ const Services = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   {/* Correction ici : utilisation de service.id */}
-                  <Link to={`/scenarios/${service.id}`} className="btn">
+                  <Link to="/scenarios" className="btn">
                     En savoir plus
                   </Link>
                 </motion.button>

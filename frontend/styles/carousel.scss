@@ -1,8 +1,22 @@
 .carousel { 
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     justify-content: center;
     display: flex;
-    object-fit: cover;
+    position: relative;
+
+    // Ligne violette de séparation en haut
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #6815a5, transparent);
+        z-index: 10;
+    }
 }
 
 .carousel-full {
@@ -14,36 +28,106 @@
 }
 
 .carousel img {
-    width: 1000px;
-    background: inherit;
+    width: 900px;
     height: 500px;
     object-fit: cover;
-}
-
-.carousel img {
-    width: 1000px;
-    background: inherit;
-    height: 500px;
-    object-fit: cover;
-    border: 1px solid #e5c108d6;
+    object-position: center;
+    border: 1px solid #6815a5;
+    display: block;
+    
+    @media (max-width: 1200px) {
+        height: 400px;
+    }
+    
+    @media (max-width: 768px) {
+        height: 300px;
+        width: 500px;
+    }
+    
+    @media (max-width: 480px) {
+        height: 200px;
+        width: 95%;
+        margin: auto;
+    }
 }
 
 button.carousel-btn.left, button.carousel-btn.right {
-    background: inherit;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    position: relative;
+    position: absolute;
     color: white;
     cursor: pointer;
-}
-button.carousel-btn.left { 
-    left: 3%;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
     top: 50%;
+    transform: translateY(-50%);
+}
+
+button.carousel-btn.left { 
+    left: 13%;
 }
 
 button.carousel-btn.right { 
+    right: 13%;
+}
 
-    right: 3%;
-    top: 50%;
+/* Responsive pour tablette */
+@media (max-width: 1024px) {
+    button.carousel-btn.left, button.carousel-btn.right {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    button.carousel-btn.left {
+        left: 15px;
+    }
+    
+    button.carousel-btn.right {
+        right: 15px;
+    }
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    button.carousel-btn.left, button.carousel-btn.right {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    button.carousel-btn.left {
+        left: 13%;
+    }
+    
+    button.carousel-btn.right {
+        right: 13%;
+    }
+}
+
+/* Responsive pour petit mobile */
+@media (max-width: 480px) {
+    button.carousel-btn.left, button.carousel-btn.right {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    button.carousel-btn.left {
+        left: 8px;
+        top: 68%;
+    }
+    
+    button.carousel-btn.right {
+        right: 8px;
+        top: 68%;
+    }
 }
 
 .carousel-image {

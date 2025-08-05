@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import "../../styles/createexperience.scss"; 
 
 const eventTypes = [
-  { value: "murder", label: "Murder Party" },
   { value: "escape", label: "Escape Game" },
-  { value: "autre", label: "Autre expérience personnalisée" },
+  { value: "murder", label: "Murder Party" },
+  { value: "autre", label: "Créer votre experience sur mesure" },
 ];
 
 const handleBooking = async () => {
@@ -19,6 +19,7 @@ const handleBooking = async () => {
     date,
     time,
     name,
+    phone,
     email,
     comment,
       })
@@ -41,14 +42,22 @@ const CreateExperience = () => {
     date: "",
     time: "",
     name: "",
+    phone:"",
     email: "",
     comment: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isCustomExperience, setIsCustomExperience] = useState(false);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+
+    if (name === "eventType" && value === "autre") {
+      setIsCustomExperience(true);
+    } else if (name === "eventType") {
+      setIsCustomExperience(false);
+    }
   }
 
   async function handleSubmit(e) {
@@ -103,7 +112,18 @@ const CreateExperience = () => {
               ))}
             </select>
           </div>
-
+              {isCustomExperience && (
+                <div className="form-group custom-request-group">
+                  <label> Détaillez votre demande sur mesure</label>
+                  <textarea
+                  name="comment"
+                  value={form.comment}
+                  onChange={handleChange}
+                  placeholder="Décrivez votre expérience sur mesure..."
+                  required
+                />
+                </div>
+                )}
           <div className="form-group">
             <label>Nombre de joueurs</label>
             <input
@@ -134,7 +154,6 @@ const CreateExperience = () => {
               name="time"
               value={form.time}
               onChange={handleChange}
-              required
             />
           </div>
 
@@ -162,15 +181,28 @@ const CreateExperience = () => {
           </div>
 
           <div className="form-group">
-            <label>Commentaires (optionnel)</label>
-            <textarea
-              name="comment"
-              value={form.comment}
-              onChange={handleChange}
-              placeholder="Détaillez votre demande..."
+            <label>Téléphone</label>
+            <input 
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            required
+            placeholder="Votre numéro de téléphone"
             />
           </div>
 
+                {         /* Si l'utilisateur a choisi "autre", on affiche un champ de texte pour la demande personnalisée */}
+                {!isCustomExperience && (
+                  <div className="form-group">
+                    <label> Commentaire (optionnel)</label>
+                    <textarea
+                    name="comment"
+                    value={form.comment}
+                    onChange={handleChange}
+                    placeholder="Détaillez votre demande..."
+                    />
+                  </div>
+                  )}
           <motion.button
             type="submit"
             className="create-experience__btn"

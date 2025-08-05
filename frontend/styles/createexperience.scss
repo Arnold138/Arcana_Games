@@ -4,18 +4,41 @@
   border-radius: 2rem;
   margin: 3rem 0;
   box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  // Assurer l'espace pour le titre
+  min-height: 100vh;
+  padding-top: 100px; // Espace pour le header fixe
 
   .container {
-    padding: 2.5rem 1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
     max-width: 540px;
     margin: 0 auto;
+    position: relative;
+
+    // Mobile responsive
+    @media (max-width: 768px) {
+      padding: 2rem 1rem 1.5rem;
+    }
   }
 
   &__title {
     font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 10;
+    
+    // Responsive pour mobile
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    // Très petit écran
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__form {
@@ -52,6 +75,47 @@
         min-height: 70px;
         resize: vertical;
       }
+    }
+
+    // Style spécial pour le champ demande sur mesure
+    .custom-request-group {
+      background: rgba(131, 111, 255, 0.05);
+      border: 1px solid rgba(131, 111, 255, 0.2);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      
+      label {
+        color: var(--color-primary, #836fff);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      
+      textarea {
+        min-height: 100px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(131, 111, 255, 0.3);
+        
+        &:focus {
+          outline: 2px solid var(--color-primary, #836fff);
+          border-color: var(--color-primary, #836fff);
+        }
+      }
+      
+      // Animation d'apparition
+      animation: slideInFromTop 0.3s ease-out;
+    }
+  }
+
+  // Animation pour l'apparition du champ sur mesure
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

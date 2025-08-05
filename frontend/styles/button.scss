@@ -27,13 +27,13 @@
   
   // Variantes
   &--primary {
-    background: linear-gradient(45deg, $accent-gold, lighten($accent-gold, 10%));
-    color: $primary-dark;
+    background: $accent-purple;
+    color: $text-primary;
     font-weight: 600;
     
     &:hover {
-      background: linear-gradient(45deg, lighten($accent-gold, 10%), lighten($accent-gold, 20%));
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+      background: lighten($accent-purple, 10%);
+      box-shadow: 0 0 30px rgba(104, 21, 165, 0.4);
     }
   }
   
@@ -43,20 +43,20 @@
     border: 1px solid $tertiary-dark;
     
     &:hover {
-      background: $tertiary-dark;
-      border-color: $accent-gold;
-      color: $accent-gold;
+      background: $accent-purple;
+      border-color: $accent-purple;
+      color: $text-primary;
     }
   }
   
   &--outline {
     background: transparent;
-    color: $accent-gold;
-    border: 2px solid $accent-gold;
+    color: $text-primary;
+    border: 2px solid $accent-purple;
     
     &:hover {
-      background: $accent-gold;
-      color: $primary-dark;
+      background: $accent-purple;
+      color: $text-primary;
     }
   }
   
@@ -85,5 +85,39 @@
       transform: none;
       box-shadow: none;
     }
+  }
+}
+
+// Classes pour couleurs par catégorie
+.murder-party {
+  background: #6815a5 !important;
+  color: white !important;
+  
+  &:hover {
+    background: lighten(#6815a5, 10%) !important;
+    box-shadow: 0 0 30px rgba(104, 21, 165, 0.4) !important;
+    border: #6815a5;
+  }
+}
+
+.escape-game {
+  background: $accent-gold !important;
+  color: $primary-dark !important;
+  
+  &:hover {
+    background: lighten($accent-gold, 10%) !important;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4) !important;
+  }
+}
+
+.olympiades {
+  background: #00ff88 !important;
+  color: $primary-dark !important;
+  
+  
+  &:hover {
+    background: lighten(#00ff88, 10%) !important;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.4) !important;
+    border: #00ff88;
   }
 }

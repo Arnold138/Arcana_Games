@@ -17,8 +17,8 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--color-gold, #d4af37);
-    text-shadow: 0 2px 10px rgba(255,215,0,0.07);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(255,255,255,0.07);
   }
 
   &__form {
@@ -43,7 +43,7 @@
         margin-bottom: 0.4rem;
         box-shadow: 0 1px 3px rgba(0,0,0,0.07);
         &:focus {
-          outline: 2px solid var(--color-primary, #836fff);
+          outline: 2px solid #6815a5;
         }
       }
       textarea {
@@ -54,20 +54,22 @@
   }
 
   &__submit {
-    background: linear-gradient(90deg, #ffd700, #836fff 90%);
-    color: #181824;
+    background: #6815a5;
+    color: #ffffff;
     font-weight: 700;
     font-size: 1.13rem;
-    border: none;
+    border: 1px solid #6815a5;
     border-radius: 1.1rem;
     padding: 1rem 0;
     margin-top: 0.7rem;
     cursor: pointer;
-    box-shadow: 0 3px 16px rgba(255,215,0,0.09);
+    box-shadow: 0 3px 16px rgba(104, 21, 165, 0.09);
     transition: box-shadow 0.17s, background 0.18s;
     &:hover {
-      background: linear-gradient(90deg, #836fff, #ffd700 100%);
-      box-shadow: 0 7px 18px rgba(131, 111, 255, 0.17);
+      background: transparent;
+      color: #6815a5;
+      border: 1px solid #6815a5;
+      box-shadow: 0 7px 18px rgba(104, 21, 165, 0.17);
     }
   }
 
@@ -86,4 +88,8 @@
     z-index: 12;
     margin-top: 1rem;
   }
+}
+
+section#contact {
+  margin-top: 10rem;
 }

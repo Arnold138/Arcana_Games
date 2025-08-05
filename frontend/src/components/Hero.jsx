@@ -94,13 +94,13 @@ const Hero = () => {
 
          <motion.div className="hero__cta" variants={itemVariants}>
   <Link to="/experience">
-    <Button variant="primary" size="lg">
-      Créer votre expérience
+  <Button variant="outline" size="lg">
+      Découvrir nos scénarios
     </Button>
   </Link>
   <Link to="/scenarios">
-    <Button variant="outline" size="lg">
-      Découvrir nos scénarios
+    <Button variant="primary" size="lg">
+      Créer votre expérience
     </Button>
   </Link>
   <Link to="/about">

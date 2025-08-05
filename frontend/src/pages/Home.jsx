@@ -7,8 +7,8 @@ import CreateExperience from '../components/createexperience';
 import Contact from '../components/contact';
 import Carousel from '../components/Carousel';
 
-// Changez le chemin pour correspondre à la structure dans docs/
-const images = Array.from({ length: 15}, (_, i) => `./assets/images/carousel/${i + 1}.webp`);
+// Chemin correct pour Vite avec base URL
+const images = Array.from({ length: 15}, (_, i) => `${import.meta.env.BASE_URL}images/carousel/${i + 1}.webp`);
 
 const Home = () => {
   return (

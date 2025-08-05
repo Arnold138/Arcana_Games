@@ -13,7 +13,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, $accent-gold, transparent);
+    background: linear-gradient(90deg, transparent, $accent-purple, transparent);
   }
 
   &__header {
@@ -40,9 +40,22 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: $spacing-2xl;
     margin-top: $spacing-3xl;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include respond-to(xl) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-xl;
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-lg;
+    }
 
     @include respond-to(md) {
       grid-template-columns: 1fr;
@@ -71,11 +84,35 @@
     }
 
     &--red {
-      --accent-color: #{$accent-red};
+      --accent-color: #6815a5;
     }
 
     &--gold {
       --accent-color: #{$accent-gold};
+      
+      .services__cta {
+        color: $text-primary;
+        border-color: $accent-gold;
+        
+        &:hover {
+          background: $accent-gold;
+          color: $primary-dark;
+        }
+      }
+    }
+
+    &--green {
+      --accent-color: #00ff88;
+      
+      .services__cta {
+        color: $text-primary;
+        border-color: #00ff88;
+        
+        &:hover {
+          background: #00ff88;
+          color: $primary-dark;
+        }
+      }
     }
 
     &:hover {
@@ -119,8 +156,10 @@
 
   &__card-description {
     color: $text-secondary;
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: $spacing-xl;
+    padding: 0 $spacing-md;
+    text-align: justify;
   }
 
   &__features {
@@ -164,3 +203,107 @@
     }
   }
 }
+
+.services__card.services__card--red a {
+  color: white;
+}
+
+button.scenarios-page__filter.active {
+  color: inherit;
+  background: inherit;
+} 
+
+button.scenarios-page__filter.hover {
+  background:gold;
+}
+
+
+button.scenarios-page__filter.active.murder-party {
+  border-color:#6815a5;
+}
+
+button.scenarios-page__filter.active.escape-game {
+  border-color: #ffd700;
+}
+button.scenarios-page__filter.active.olympiades {
+  border-color: #00ff00;
+}
+.escape-game
+ {
+    background: transparent;
+    color: white; }
+
+
+    .services__card.services__card--green a {
+      color: white;
+  }
+
+
+  @media (max-width: 768px){
+    .services__card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-direction: column;
+      margin: 0 auto;
+      width: fit-content;
+  }
+  
+  .services__icon {
+      width: 100%;
+      background: inherit;
+  }
+  
+  ul.services__features {
+      margin: 0 auto;
+      width: fit-content;
+      white-space: nowrap;
+  }
+  span.hero__title--accent {
+    font-size: 30px;
+}
+h1.hero__title {
+  line-height: 40px;
+}
+    
+  }
+
+  @media (max-width:428px) {
+    span.hero__title--accent {
+      font-size: 30px;
+
+  }
+  h1.hero__title {
+    line-height: 40px;
+}
+
+
+ul.services__features {
+  font-size: 13px;
+ 
+}
+
+p.services__card-description {
+  font-size: 13px;
+  width: fit-content;
+}
+
+p.services__card-subtitle {
+  width: fit-content;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.services__card.services__card--red {
+  padding: 1rem;
+}
+
+.services__card.services__card--gold {
+  padding: 1rem;
+}
+
+.services__card.services__card--green {
+  padding: 1rem;
+}
+  }

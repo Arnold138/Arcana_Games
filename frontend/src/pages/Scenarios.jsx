@@ -15,70 +15,59 @@ const Scenarios = () => {
   const scenarios = [
     {
       id: 1,
-      title: "Le Mystère du Manoir Blackwood",
-      description: "Une soirée élégante dans un manoir victorien se transforme en enquête criminelle quand l'hôte est retrouvé mort dans sa bibliothèque.",
-      duration: "3-4h",
+      title: "Le Tueur aux Énigmes",
+      description: "Un tueur en série insaisissable terrorise la région. La police piétine… et tout bascule : le coupable est parmi vous. Réunis pour une soirée, chaque joueur devient à la fois enquêteur et suspect. Indices cryptiques, faux-semblants et trahisons se multiplient : saurez-vous démasquer l'assassin avant qu'il ne frappe à nouveau ?",
+      duration: "3h",
       players: "8-12",
       difficulty: "Intermédiaire",
       category: "Murder Party",
       image: "/api/placeholder/400/300",
       highlights: [
-        "Décors d'époque authentiques",
-        "Costumes victoriens fournis",
-        "Intrigue complexe à rebondissements"
+        "Huis clos intense et immersif",
+        "Chaque joueur est suspect",
+        "Indices cryptiques et trahisons",
+        "Ambiance psychologique unique"
       ]
     },
     {
       id: 2,
-      title: "Espionnage à Berlin",
-      description: "Plongez dans l'univers de la guerre froide. Votre mission : infiltrer une réception diplomatique pour récupérer des documents secrets.",
-      duration: "2-3h",
-      players: "6-10",
+      title: "Le Grand Complot",
+      description: "Bienvenue dans l'ombre de l'organisation Arcana. Vous êtes conviés à intégrer un cercle secret, à condition de percer les mystères des plus grands complots mondiaux : manipulation, codex cachés, secrets d'État et énigmes à tiroirs. Serez-vous capables de séparer la vérité des fausses pistes et de prouver que vous méritez votre place parmi les conspirateurs ?",
+      duration: "1h30",
+      players: "4-8",
       difficulty: "Avancé",
-      category: "Murder Party",
+      category: "Escape Game",
       image: "/api/placeholder/400/300",
       highlights: [
-        "Ambiance années 60",
-        "Gadgets d'espionnage",
-        "Scénario multi-niveaux"
+        "Univers conspirationniste immersif",
+        "Énigmes historiques complexes",
+        "Logique et coopération requises",
+        "Secrets d'État à découvrir"
       ]
     },
     {
       id: 3,
-      title: "L'Énigme du Laboratoire",
-      description: "Un scientifique a disparu de son laboratoire high-tech. Résolvez les énigmes technologiques pour découvrir la vérité.",
-      duration: "1-2h",
-      players: "4-8",
-      difficulty: "Débutant",
-      category: "Escape Game",
+      title: "Olympiades Déjantées",
+      description: "Oubliez les jeux classiques : place aux Olympiades by Arcana, un défi sportif revisité pour déclencher fous rires et esprit d'équipe ! Affrontez-vous lors d'épreuves déjantées, de relais loufoques et de défis aussi improbables qu'endiablés. Ici, tout le monde repart gagnant : entre amis ou collègues, c'est la convivialité qui fait la loi.",
+      duration: "3h",
+      players: "8-20",
+      difficulty: "Tous niveaux",
+      category: "Olympiades",
       image: "/api/placeholder/400/300",
       highlights: [
-        "Énigmes technologiques",
-        "Décor futuriste",
-        "Perfect pour team building"
-      ]
-    },
-    {
-      id: 4,
-      title: "Le Trésor des Pirates",
-      description: "Embarquez pour une chasse au trésor épique. Déchiffrez les cartes anciennes et résolvez les énigmes pour trouver le butin.",
-      duration: "2-3h",
-      players: "6-15",
-      difficulty: "Intermédiaire",
-      category: "Escape Game",
-      image: "/api/placeholder/400/300",
-      highlights: [
-        "Aventure en extérieur possible",
-        "Énigmes créatives",
-        "Récompenses surprises"
+        "Épreuves sportives déjantées",
+        "Fous rires et convivialité garantis",
+        "Perfect pour team building",
+        "Souvenirs inoubliables assurés"
       ]
     }
   ];
 
   const filters = [
-    { key: 'all', label: 'Tous les scénarios' },
-    { key: 'Murder Party', label: 'Murder Parties' },
-    { key: 'Escape Game', label: 'Escape Games' }
+    { key: 'all', label: 'Tous les scénarios', className: '' },
+    { key: 'Escape Game', label: 'Escape Games', className: 'escape-game' },
+    { key: 'Murder Party', label: 'Murder Party', className: 'murder-party' },
+    { key: 'Olympiades', label: 'Olympiades', className: 'olympiades' }
   ];
 
   const filteredScenarios = activeFilter === 'all' 
@@ -131,7 +120,7 @@ const Scenarios = () => {
               key={filter.key}
               className={`scenarios-page__filter ${
                 activeFilter === filter.key ? 'active' : ''
-              }`}
+              } ${filter.className}`}
               onClick={() => setActiveFilter(filter.key)}
             >
               {filter.label}
