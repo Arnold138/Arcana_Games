@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaInstagram } from 'react-icons/fa';
 import '../../styles/header.scss';
 import logo from '../assets/arcanalogo.png';
 
@@ -43,15 +44,27 @@ const Header = () => {
     >
       <div className="container">
         <div className="header__content">
-          {/* GAUCHE : Texte Arcana Games */}
-          <Link to="/" className="header__logo-text-link">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
+          {/* GAUCHE : Texte Arcana Games + Instagram */}
+          <div className="header__logo-section">
+            <Link to="/" className="header__logo-text-link">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <span className="header__logo-text">Arcana Games</span>
+              </motion.div>
+            </Link>
+            <motion.a
+              href="https://www.instagram.com/arcanaescapegame/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header__instagram-link"
+              whileHover={{ scale: 1.2 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="header__logo-text">Arcana Games</span>
-            </motion.div>
-          </Link>
+              <FaInstagram />
+            </motion.a>
+          </div>
 
           {/* CENTRE : Logo */}
           <Link to="/" className="header__logo-center">

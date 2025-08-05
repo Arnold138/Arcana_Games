@@ -31,7 +31,14 @@
     // align-items: center;
   }
 
-  // GAUCHE : Texte Arcana Games
+  // GAUCHE : Section Logo + Instagram
+  &__logo-section {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    justify-self: start;
+  }
+
   &__logo-text-link {
     font-family: $font-display;
     font-size: $font-size-2xl;
@@ -39,7 +46,6 @@
     color: $accent-purple;
     text-decoration: none;
     position: relative;
-    justify-self: start; // Aligné à gauche dans la grille
 
     &::after {
       content: '';
@@ -54,6 +60,17 @@
 
     &:hover::after {
       width: 100%;
+    }
+  }
+
+  &__instagram-link {
+    color: $accent-gold;
+    font-size: $font-size-xl;
+    transition: all $transition-normal;
+    
+    &:hover {
+      color: #E4405F; // Couleur Instagram
+      filter: drop-shadow(0 0 8px rgba(228, 64, 95, 0.5));
     }
   }
 

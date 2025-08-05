@@ -93,16 +93,14 @@ const Hero = () => {
           </motion.p>
 
          <motion.div className="hero__cta" variants={itemVariants}>
-  <Link to="/experience">
+  <Link to="/scenarios">
   <Button variant="outline" size="lg">
       Découvrir nos scénarios
     </Button>
   </Link>
-  <Link to="/scenarios">
-    <Button variant="primary" size="lg">
+  <Button variant="primary" size="lg" onClick={() => document.getElementById('create-experience')?.scrollIntoView({ behavior: 'smooth' })}>
       Créer votre expérience
-    </Button>
-  </Link>
+  </Button>
   <Link to="/about">
     <Button variant="secondary" size="lg">
       Qui sommes nous ?</Button>

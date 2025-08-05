@@ -22,6 +22,7 @@ const Home = () => {
       <Carousel images={images} className="carousel-full" />
       <Services />
       <Features />
+      <CreateExperience />
       <Contact />
     </motion.main>
   );

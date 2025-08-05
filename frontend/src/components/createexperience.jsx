@@ -82,7 +82,7 @@ const CreateExperience = () => {
   }
 
   return (
-    <section className="create-experience">
+    <section id="create-experience" className="create-experience">
       <div className="container">
         <motion.h2
           className="create-experience__title"
